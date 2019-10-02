@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'What Did That Guy From Chowder Always Say?',
+    date: 'Aug 1st, 2019',
+    firstParagraph: `I think he used to say radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda.`,
+
+    secondParagraph: `Or maybe it was RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA`,
+
+    thirdParagraph: `Actually you know what I am almost certain it was  RADDA RADDA RADDA RADDA RADDA RADDA radda radda radda radda radda radda radda RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA radda radda radda radda radda radda radda RADDA RADDA RADDA RADDA.`
   }
 ];
 
@@ -115,9 +124,13 @@ const data = [
 
 const articles = document.querySelector('.articles');
 
-data.forEach(data => {
+// data.forEach(data => {
+//   articles.appendChild(createArticle(data));
+// })
+data.map(data => {
   articles.appendChild(createArticle(data));
 })
+
 //start of the function!!!
 
 function createArticle(attributes) {
