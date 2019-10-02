@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'What Did That Guy From Chowder Always Say?',
+    date: 'Aug 1st, 2019',
+    firstParagraph: `I think he used to say radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda radda.`,
+
+    secondParagraph: `Or maybe it was RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA`,
+
+    thirdParagraph: `Actually you know what I am almost certain it was  RADDA RADDA RADDA RADDA RADDA RADDA radda radda radda radda radda radda radda RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA RADDA radda radda radda radda radda radda radda RADDA RADDA RADDA RADDA.`
   }
 ];
 
@@ -112,3 +121,54 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+const articles = document.querySelector('.articles');
+
+// data.forEach(data => {
+//   articles.appendChild(createArticle(data));
+// })
+data.map(data => {
+  articles.appendChild(createArticle(data));
+})
+
+//start of the function!!!
+
+function createArticle(attributes) {
+  const article = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const articleP1 = document.createElement('p');
+  const articleP2 = document.createElement('p');
+  const articleP3 = document.createElement('p');
+  const articleButton = document.createElement('span');
+
+  //set up structure of elements
+
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(articleP1);
+  article.appendChild(articleP2);
+  article.appendChild(articleP3);
+  article.appendChild(articleButton);
+
+  // set class names
+
+  article.classList.add('article');
+  articleDate.classList.add('date');
+  articleButton.classList.add('expandButton');
+
+  // set text content
+  articleTitle.textContent = attributes.title;
+  articleDate.textContent = attributes.date;
+  articleP1.textContent = attributes.firstParagraph;
+  articleP2.textContent = attributes.secondParagraph;
+  articleP3.textContent = attributes.thirdParagraph;
+  articleButton.textContent = 'Read More';
+
+  articleButton.addEventListener('click', (e) => {
+    e.target.parentElement.classList.toggle('article-open');
+  })
+
+  return article
+
+}//this closes createArticle
